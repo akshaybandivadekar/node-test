@@ -4,13 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cross-env NODE_ENV=development mocha \"./{,!(node_modules)/**/}*.test.js\" --exit",
+    "test2": "mocha \"./tests/**/*.js\" --recursive",
+    "coverage": "cross-env NODE_ENV=development nyc --reporter=text npm test"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.3.6",
-    "cross-env": "^7.0.3"
+    "chai-as-promised": "^7.1.1",
+    "cross-env": "^7.0.3",
+    "istanbul": "^0.4.5",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.1",
+    "rewire": "^4.0.1",
+    "sinon": "^5.0.10",
+    "sinon-chai": "^3.1.0",
+    "supertest": "^3.4.2"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.15"
   }
 }
